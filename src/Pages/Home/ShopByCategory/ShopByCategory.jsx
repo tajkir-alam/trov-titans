@@ -7,7 +7,7 @@ import '@smastrom/react-rating/style.css'
 
 const ShopByCategory = () => {
     return (
-        <div className='custom-container mb-44'>
+        <div className='custom-container'>
             <div className='text-center space-y-3 md:w-3/4 mb-6 mx-auto px-1 md:px-0'>
                 <h1 className='text-3xl md:text-5xl font-semibold text-slate-800'>Grab Your Titans</h1>
                 <p className='font-medium text-slate-600'>Lorem ipsum dolor sit, Dolorum mollitia similique odio esse aliquam assumenda facilis magnam accusantium iste.</p>
