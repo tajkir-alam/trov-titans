@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-server-data
+Trov-Titans-server-data
 *.local
 
 # Editor directories and files
