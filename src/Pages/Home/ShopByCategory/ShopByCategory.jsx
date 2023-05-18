@@ -1,10 +1,17 @@
 import React from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import img1 from '../../../assets/gallery3.jpg'
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 const ShopByCategory = () => {
     return (
-        <div className='custom-container'>
+        <div className='custom-container mb-44'>
+            <div className='text-center space-y-3 md:w-3/4 mb-6 mx-auto px-1 md:px-0'>
+                <h1 className='text-3xl md:text-5xl font-semibold text-slate-800'>Grab Your Titans</h1>
+                <p className='font-medium text-slate-600'>Lorem ipsum dolor sit, Dolorum mollitia similique odio esse aliquam assumenda facilis magnam accusantium iste.</p>
+            </div>
             <Tabs forceRenderTabPanel defaultIndex={1}>
                 <TabList className="grid grid-cols-3 text-center text-[#e4132bd2] text-xl font-semibold">
                     <Tab>Marvel</Tab>
@@ -13,67 +20,139 @@ const ShopByCategory = () => {
                 </TabList>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
-                        <TabList>
+                        <TabList className='text-[#e4132bd2] py-2 font-medium'>
                             <Tab>Homer Simpson</Tab>
                             <Tab>Marge Simpson</Tab>
-                            <Tab>Bart Simpson</Tab>
-                            <Tab>Lisa Simpson</Tab>
-                            <Tab>Maggie Simpson</Tab>
                         </TabList>
                         <TabPanel>
-                            <p>Husband of Marge; father of Bart, Lisa, and Maggie.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Homer_Simpson_2006.png/212px-Homer_Simpson_2006.png" alt="Homer Simpson" />
+                            <div className="card lg:card-side shadow-xl">
+                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
+                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
+                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
+                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
+                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
+                                        <Rating
+                                            style={{ maxWidth: 180 }}
+                                            value={3}
+                                            readOnly
+                                        />
+                                    </span>
+                                    <div className="card-actions ">
+                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            <p>Wife of Homer; mother of Bart, Lisa, and Maggie.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Marge_Simpson.png/220px-Marge_Simpson.png" alt="Marge Simpson" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Oldest child and only son of Homer and Marge; brother of Lisa and Maggie.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png" alt="Bart Simpson" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Middle child and eldest daughter of Homer and Marge; sister of Bart and Maggie.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Lisa_Simpson.png/200px-Lisa_Simpson.png" alt="Lisa Simpson" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Youngest child and daughter of Homer and Marge; sister of Bart and Lisa.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Maggie_Simpson.png/223px-Maggie_Simpson.png" alt="Maggie Simpson" />
+                            <div className="card lg:card-side shadow-xl">
+                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
+                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
+                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
+                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
+                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
+                                        <Rating
+                                            style={{ maxWidth: 180 }}
+                                            value={3}
+                                            readOnly
+                                        />
+                                    </span>
+                                    <div className="card-actions ">
+                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel>
                     </Tabs>
                 </TabPanel>
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
-                        <TabList>
-                            <Tab>Philip J. Fry</Tab>
-                            <Tab>Turanga Leela</Tab>
-                            <Tab>Bender Bending Rodriguez</Tab>
-                            <Tab>Amy Wong</Tab>
-                            <Tab>Professor Hubert J. Farnsworth</Tab>
-                            <Tab>Doctor John Zoidberg</Tab>
+                        <TabList className='text-[#e4132bd2] py-2 font-medium'>
+                            <Tab>Homer Simpson</Tab>
+                            <Tab>Marge Simpson</Tab>
                         </TabList>
                         <TabPanel>
-                            <p>Protagonist, from the 20th Century. Delivery boy. Many times great-uncle to Professor Hubert Farnsworth. Suitor of Leela.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Philip_Fry.png/175px-Philip_Fry.png" alt="Philip J. Fry" />
+                            <div className="card lg:card-side shadow-xl">
+                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
+                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
+                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
+                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
+                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
+                                        <Rating
+                                            style={{ maxWidth: 180 }}
+                                            value={3}
+                                            readOnly
+                                        />
+                                    </span>
+                                    <div className="card-actions ">
+                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            <p>Mutant cyclops. Captain of the Planet Express Ship. Love interest of Fry.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Turanga_Leela.png/150px-Turanga_Leela.png" alt="Turanga Leela" />
+                            <div className="card lg:card-side shadow-xl">
+                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
+                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
+                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
+                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
+                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
+                                        <Rating
+                                            style={{ maxWidth: 180 }}
+                                            value={3}
+                                            readOnly
+                                        />
+                                    </span>
+                                    <div className="card-actions ">
+                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </TabPanel>
+                    </Tabs>
+                </TabPanel>
+                <TabPanel>
+                    <Tabs forceRenderTabPanel>
+                        <TabList className='text-[#e4132bd2] py-2 font-medium'>
+                            <Tab>Homer Simpson</Tab>
+                            <Tab>Marge Simpson</Tab>
+                        </TabList>
+                        <TabPanel>
+                            <div className="card lg:card-side shadow-xl">
+                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
+                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
+                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
+                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
+                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
+                                        <Rating
+                                            style={{ maxWidth: 180 }}
+                                            value={3}
+                                            readOnly
+                                        />
+                                    </span>
+                                    <div className="card-actions ">
+                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            <p>A kleptomaniacal, lazy, cigar-smoking, heavy-drinking robot who is Fry's best friend. Built in Tijuana, Mexico, he is the Planet Express Ship's cook.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png" alt="Bender Bending Rodriguez" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Chinese-Martian intern at Planet Express. Fonfon Ru of Kif Kroker.</p>
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Many times great-nephew of Fry. CEO and owner of Planet Express delivery company. Tenured professor of Mars University.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/FuturamaProfessorFarnsworth.png/175px-FuturamaProfessorFarnsworth.png" alt="Professor Hubert J. Farnsworth" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Alien from Decapod 10. Planet Express' staff doctor and steward. Has a medical degree and Ph.D in art history.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Dr_John_Zoidberg.png/200px-Dr_John_Zoidberg.png" alt="Doctor John Zoidberg" />
+                            <div className="card lg:card-side shadow-xl">
+                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
+                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
+                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
+                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
+                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
+                                        <Rating
+                                            style={{ maxWidth: 180 }}
+                                            value={3}
+                                            readOnly
+                                        />
+                                    </span>
+                                    <div className="card-actions ">
+                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
                         </TabPanel>
                     </Tabs>
                 </TabPanel>
