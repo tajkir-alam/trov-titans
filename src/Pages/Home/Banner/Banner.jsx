@@ -28,12 +28,12 @@ const Banner = () => {
                 <SwiperSlide>
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider1} loading="lazy" />
-                    <span className='text-[#ffffffe3] absolute top-3/4 left-1/4 text-7xl z-20'>Welcome to Trove Titans</span>
+                    <span className='text-[#ffffffe3] absolute top-1/3 left-12 w-3/4 md:top-3/4 md:left-52 text-center text-3xl lg:text-7xl z-20'>Welcome to Trove Titans</span>
                 </SwiperSlide>
                 <SwiperSlide>
                     <span className='absolute bg-gradient-to-r from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.2)] w-full h-full'></span>
                     <img src={slider2} loading="lazy" />
-                    <span className='text-[#ffffffe3] absolute top-3/4 left-1/4 text-7xl z-20'>Welcome to Trove Titans</span>
+                    <span className='text-[#ffffffe3] absolute top-1/3 left-12 w-3/4 md:top-3/4 md:left-52 text-center text-3xl lg:text-7xl z-20'>Welcome to Trove Titans</span>
                 </SwiperSlide>
             </Swiper>
         </div>
