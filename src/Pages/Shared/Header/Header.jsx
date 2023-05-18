@@ -4,15 +4,15 @@ import logo from '../../../assets/logo.png'
 
 const Header = () => {
     const navItems = () => <>
-        <li><NavLink to={'/'} className={({isActive}) => isActive ? "active font-bold" : "hover:bg-transparent"}>Home</NavLink></li>
-        <li><NavLink to={'/alltoys'} className={({isActive}) => isActive ? "active font-bold" : "hover:bg-transparent"}>All Toys</NavLink></li>
-        <li><NavLink to={'/mytoys'} className={({isActive}) => isActive ? "active font-bold" : "hover:bg-transparent"}>My Toys</NavLink></li>
-        <li><NavLink to={'/addtoy'} className={({isActive}) => isActive ? "active font-bold" : "hover:bg-transparent"}>Add a Toy</NavLink></li>
-        <li><NavLink to={'/blogs'} className={({isActive}) => isActive ? "active font-bold" : "hover:bg-transparent"}>Blogs</NavLink></li>
+        <li><NavLink to={'/'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Home</NavLink></li>
+        <li><NavLink to={'/alltoys'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>All Toys</NavLink></li>
+        <li><NavLink to={'/mytoys'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>My Toys</NavLink></li>
+        <li><NavLink to={'/addtoy'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Add a Toy</NavLink></li>
+        <li><NavLink to={'/blogs'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Blogs</NavLink></li>
     </>
 
     return (
-        <div className="navbar">
+        <div className="navbar custom-container">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -31,11 +31,11 @@ const Header = () => {
             </div>
             <div className="navbar-end gap-2">
                 <div>
-                    <NavLink to={'/login'} className={({isActive}) => isActive ? 'active-secondary' : 'common-active-secondary'}>
-                       Login
+                    <NavLink to={'/login'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
+                        Login
                     </NavLink>
-                    <NavLink to={'/registration'} className='common-active-secondary'>
-                       Signup
+                    <NavLink to={'/registration'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
+                        Signup
                     </NavLink>
                 </div>
                 <div className="dropdown dropdown-end">

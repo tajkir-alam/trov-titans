@@ -6,10 +6,8 @@ import Footer from '../Pages/Shared/Footer/Footer';
 const Main = () => {
     return (
         <>
-            <div className="custom-container">
-                <Header></Header>
-                <Outlet></Outlet>
-            </div>
+            <Header></Header>
+            <Outlet></Outlet>
             <Footer></Footer>
         </>
     );
