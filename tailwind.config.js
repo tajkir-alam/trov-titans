@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        // 'banner-img': "url('https://i.ibb.co/NyfFm93/headerbg.png')"
+        'banner-img': "url('./src/assets/ok.png')"
       },
     },
   },

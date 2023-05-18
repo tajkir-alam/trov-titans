@@ -12,7 +12,7 @@ import { Pagination, Navigation, Autoplay, } from "swiper";
 
 const Banner = () => {
     return (
-        <div className='h-[calc(100vh-100px)]'>
+        <div className='md:h-[calc(100vh-100px)]'>
             <Swiper
                 grabCursor={true}
                 autoplay={{
