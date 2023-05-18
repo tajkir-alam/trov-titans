@@ -15,10 +15,10 @@
 }
 
 .active-secondary {
-    @apply btn bg-[#e4132b93] hover:bg-[#e4132b93] px-4 border-0 tracking-wider font-semibold normal-case text-white;
+    @apply btn bg-[#e4132b93] hover:bg-[#e4132b93] px-2 md:px-4 border-0 tracking-wider font-semibold normal-case;
 }
 
 
 .common-active-secondary {
-    @apply btn px-4 bg-transparent border-0 text-[#e4132c] hover:bg-[#e4132b93] hover:text-white tracking-wider font-semibold normal-case;
+    @apply btn px-2 md:px-4 bg-slate-100 mb-1 md:mb-0 md:bg-transparent border-0 text-[#e4132c] hover:bg-[#e4132b93] hover:text-white tracking-wider font-semibold normal-case;
 }
