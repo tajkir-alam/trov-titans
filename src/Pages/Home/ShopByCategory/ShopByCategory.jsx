@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import img1 from '../../../assets/gallery3.jpg'
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import SingleShopProduct from './SingleShopProduct';
 
 const ShopByCategory = () => {
+    const [loadShopProduct, setLoadShopProduct] = useState([]);
+
+    useEffect(() => {
+        fetch('https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory')
+            .then(res => res.json())
+            .then(data => setLoadShopProduct(data));
+    }, [])
+
     return (
         <div className='custom-container'>
             <div className='text-center space-y-3 md:w-3/4 mb-6 mx-auto px-1 md:px-0'>
                 <h1 className='text-3xl md:text-5xl font-semibold text-slate-800'>Grab Your Titans</h1>
                 <p className='font-medium text-slate-600'>Lorem ipsum dolor sit, Dolorum mollitia similique odio esse aliquam assumenda facilis magnam accusantium iste.</p>
             </div>
+
+                {
+                    loadShopProduct.map(singleProduct => console.log(singleProduct))
+                }
             <Tabs forceRenderTabPanel defaultIndex={1}>
-                <TabList className="grid grid-cols-3 text-center text-[#e4132bd2] text-xl font-semibold">
+
+
+
+                {/* <TabList className="grid grid-cols-3 text-center text-[#e4132bd2] text-xl font-semibold">
                     <Tab>Marvel</Tab>
                     <Tab>Transformers</Tab>
                     <Tab>Star Wars</Tab>
@@ -21,8 +37,8 @@ const ShopByCategory = () => {
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
                         <TabList className='text-[#e4132bd2] py-2 font-medium'>
-                            <Tab>Homer Simpson</Tab>
-                            <Tab>Marge Simpson</Tab>
+                            <Tab>Spiderman</Tab>
+                            <Tab>Batman</Tab>
                         </TabList>
                         <TabPanel>
                             <div className="card lg:card-side shadow-xl">
@@ -67,8 +83,8 @@ const ShopByCategory = () => {
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
                         <TabList className='text-[#e4132bd2] py-2 font-medium'>
-                            <Tab>Homer Simpson</Tab>
-                            <Tab>Marge Simpson</Tab>
+                            <Tab>Spiderman1</Tab>
+                            <Tab>Batman</Tab>
                         </TabList>
                         <TabPanel>
                             <div className="card lg:card-side shadow-xl">
@@ -113,8 +129,8 @@ const ShopByCategory = () => {
                 <TabPanel>
                     <Tabs forceRenderTabPanel>
                         <TabList className='text-[#e4132bd2] py-2 font-medium'>
-                            <Tab>Homer Simpson</Tab>
-                            <Tab>Marge Simpson</Tab>
+                            <Tab>Spiderman</Tab>
+                            <Tab>Batman</Tab>
                         </TabList>
                         <TabPanel>
                             <div className="card lg:card-side shadow-xl">
@@ -155,7 +171,7 @@ const ShopByCategory = () => {
                             </div>
                         </TabPanel>
                     </Tabs>
-                </TabPanel>
+                </TabPanel> */}
             </Tabs>
         </div>
     );
