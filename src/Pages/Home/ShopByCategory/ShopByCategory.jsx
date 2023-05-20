@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+// import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import img1 from '../../../assets/gallery3.jpg'
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import SingleShopProduct from './SingleShopProduct';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 const ShopByCategory = () => {
     const [loadShopProduct, setLoadShopProduct] = useState([]);
 
+    let nameIs = '';
+
+    const categoryname = (nameAre) => {
+        return nameIs = nameAre;
+    }
+
     useEffect(() => {
-        fetch('https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory')
+        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=2&categoryname=${nameIs}`)
             .then(res => res.json())
             .then(data => setLoadShopProduct(data));
     }, [])
+
+    loadShopProduct.map(ok => console.log(ok))
 
     return (
         <div className='custom-container'>
@@ -22,157 +31,52 @@ const ShopByCategory = () => {
                 <p className='font-medium text-slate-600'>Lorem ipsum dolor sit, Dolorum mollitia similique odio esse aliquam assumenda facilis magnam accusantium iste.</p>
             </div>
 
-                {
-                    loadShopProduct.map(singleProduct => console.log(singleProduct))
-                }
-            <Tabs forceRenderTabPanel defaultIndex={1}>
+            {/* ------------------------------------------------------------------- */}
 
 
-
-                {/* <TabList className="grid grid-cols-3 text-center text-[#e4132bd2] text-xl font-semibold">
-                    <Tab>Marvel</Tab>
-                    <Tab>Transformers</Tab>
+            <Tabs>
+                <TabList className='text-center text-[#e4132bd2] text-xl font-semibold divider'>
+                    <Tab onClick={()=>categoryname('Marvel')}>Marvel</Tab>
+                    <Tab onClick={()=>categoryname('StarWars')}>Transformers</Tab>
                     <Tab>Star Wars</Tab>
                 </TabList>
-                <TabPanel>
-                    <Tabs forceRenderTabPanel>
-                        <TabList className='text-[#e4132bd2] py-2 font-medium'>
-                            <Tab>Spiderman</Tab>
-                            <Tab>Batman</Tab>
-                        </TabList>
-                        <TabPanel>
-                            <div className="card lg:card-side shadow-xl">
-                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
-                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
-                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
-                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
-                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
-                                        <Rating
-                                            style={{ maxWidth: 180 }}
-                                            value={3}
-                                            readOnly
-                                        />
-                                    </span>
-                                    <div className="card-actions ">
-                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className="card lg:card-side shadow-xl">
-                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
-                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
-                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
-                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
-                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
-                                        <Rating
-                                            style={{ maxWidth: 180 }}
-                                            value={3}
-                                            readOnly
-                                        />
-                                    </span>
-                                    <div className="card-actions ">
-                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </TabPanel>
-                    </Tabs>
+                <TabPanel className='shadow-xl'>
+                    <div className='grid lg:grid-cols-2 justify-center items-center'>
+                        {
+                            loadShopProduct.map(eachProduct => <SingleShopProduct key={eachProduct._id} eachProduct={eachProduct}></SingleShopProduct>)
+                        }
+                    </div>
                 </TabPanel>
-                <TabPanel>
-                    <Tabs forceRenderTabPanel>
-                        <TabList className='text-[#e4132bd2] py-2 font-medium'>
-                            <Tab>Spiderman1</Tab>
-                            <Tab>Batman</Tab>
-                        </TabList>
-                        <TabPanel>
-                            <div className="card lg:card-side shadow-xl">
-                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
-                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
-                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
-                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
-                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
-                                        <Rating
-                                            style={{ maxWidth: 180 }}
-                                            value={3}
-                                            readOnly
-                                        />
-                                    </span>
-                                    <div className="card-actions ">
-                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className="card lg:card-side shadow-xl">
-                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
-                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
-                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
-                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
-                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
-                                        <Rating
-                                            style={{ maxWidth: 180 }}
-                                            value={3}
-                                            readOnly
-                                        />
-                                    </span>
-                                    <div className="card-actions ">
-                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </TabPanel>
-                    </Tabs>
+                <TabPanel className='shadow-xl'>
+                    <div className='grid lg:grid-cols-2 justify-center items-center'>
+                        {
+                            loadShopProduct.map(eachProduct => <SingleShopProduct key={eachProduct._id} eachProduct={eachProduct}></SingleShopProduct>)
+                        }
+                    </div>
                 </TabPanel>
-                <TabPanel>
-                    <Tabs forceRenderTabPanel>
-                        <TabList className='text-[#e4132bd2] py-2 font-medium'>
-                            <Tab>Spiderman</Tab>
-                            <Tab>Batman</Tab>
-                        </TabList>
-                        <TabPanel>
-                            <div className="card lg:card-side shadow-xl">
-                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
-                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
-                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
-                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
-                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
-                                        <Rating
-                                            style={{ maxWidth: 180 }}
-                                            value={3}
-                                            readOnly
-                                        />
-                                    </span>
-                                    <div className="card-actions ">
-                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className="card lg:card-side shadow-xl">
-                                <figure className='w-2/5 md:h-80'><img src={img1} alt="Album" /></figure>
-                                <div className="card-body p-0 md:p-8 mt-2 md:mt-0">
-                                    <h2 className="card-title md:flex md:justify-center text-3xl">New album is released!</h2>
-                                    <p className='text-xl font-medium text-slate-700 md:mt-12'>Price: </p>
-                                    <span className='flex items-center gap-3 text-3xl text-slate-600 font-semibold'> Rating:
-                                        <Rating
-                                            style={{ maxWidth: 180 }}
-                                            value={3}
-                                            readOnly
-                                        />
-                                    </span>
-                                    <div className="card-actions ">
-                                        <button className="btn w-full bg-[#e4132b93] hover:bg-[#e4132b93] border-0 tracking-widest">View Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </TabPanel>
-                    </Tabs>
-                </TabPanel> */}
+                <TabPanel className='shadow-xl'>
+                    <div>
+                        <b>Princess Peach</b> (<i>Japanese: ピーチ姫 Hepburn: Pīchi-hime, [piː.tɕi̥ çi̥.me]</i>)
+                        is a character in Nintendo's Mario franchise. Originally created by Shigeru Miyamoto,
+                        Peach is the princess of the fictional Mushroom Kingdom, which is constantly under
+                        attack by Bowser. She often plays the damsel in distress role within the series and
+                        is the lead female. She is often portrayed as Mario's love interest and has appeared
+                        in Super Princess Peach, where she is the main playable character.
+                    </div>
+                </TabPanel>
             </Tabs>
+
+
+
+
+            {/* ------------------------------------------------------------------- */}
+
+
+
+
+
+
+
         </div>
     );
 };
