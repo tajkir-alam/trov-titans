@@ -19,7 +19,7 @@ const AddToy = () => {
             .then(data => {
                 // console.log(data);
                 if (data.acknowledged) {
-                    toast("Wow so easy !");
+                    toast("Product has been added !");
                     reset();
                 }
             })
