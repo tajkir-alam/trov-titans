@@ -8,11 +8,11 @@ const SingleToy = () => {
 
     return (
         <div className='custom-container mt-8 p-3 shadow-md rounded-lg'>
-            <div className="grid grid-cols-3 gap-8 justify-centerpy-2">
+            <div className="grid lg:grid-cols-3 gap-8 justify-centerpy-2">
                 <div>
                     <img src={picture} alt="" className='rounded-lg' />
                 </div>
-                <div className='space-y-8 col-span-2 pl-4'>
+                <div className='space-y-4 lg:space-y-8 col-span-2 lg:pl-4'>
                     <h1 className='text-5xl text-slate-700 font-bold'>{name}</h1>
                     <h3 className='text-3xl font-semibold'>Price ${price}</h3>
                     <h4 className='text-2xl font-semibold'>In Stock: {quantity}</h4>
