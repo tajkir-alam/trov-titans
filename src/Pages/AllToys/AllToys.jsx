@@ -10,7 +10,7 @@ const AllToys = () => {
         fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=${showProducts}`)
             .then(res => res.json())
             .then(data => setLoadToys(data));
-    }, [])
+    }, [showProducts])
 
     const productsLimit = e => {
         // console.log(e.target.value);
@@ -30,6 +30,7 @@ const AllToys = () => {
                 <div className='text-right pr-3'>
                     <select onChange={productsLimit} className="select select-error">
                         <option value={20}>Products Loaded: 20</option>
+                        <option value={5}>Products Loaded: 5</option>
                         <option value={30}>Products Loaded: 30</option>
                         <option value={50}>Products Loaded: 50</option>
                     </select>

@@ -36,9 +36,9 @@ const ShopByCategory = () => {
 
             <Tabs>
                 <TabList className='text-center text-[#e4132bd2] text-xl font-semibold divider'>
-                    <Tab onClick={()=>categoryname('Marvel')}>Marvel</Tab>
-                    <Tab onClick={()=>categoryname('StarWars')}>Transformers</Tab>
-                    <Tab>Star Wars</Tab>
+                    <Tab onClick={() => categoryname('Marvel')}>Marvel</Tab>
+                    <Tab onClick={() => categoryname('Transformers')}>Transformers</Tab>
+                    <Tab onClick={() => categoryname('StarWars')}>Star Wars</Tab>
                 </TabList>
                 <TabPanel className='shadow-xl'>
                     <div className='grid lg:grid-cols-2 justify-center items-center'>
@@ -55,13 +55,10 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel className='shadow-xl'>
-                    <div>
-                        <b>Princess Peach</b> (<i>Japanese: ピーチ姫 Hepburn: Pīchi-hime, [piː.tɕi̥ çi̥.me]</i>)
-                        is a character in Nintendo's Mario franchise. Originally created by Shigeru Miyamoto,
-                        Peach is the princess of the fictional Mushroom Kingdom, which is constantly under
-                        attack by Bowser. She often plays the damsel in distress role within the series and
-                        is the lead female. She is often portrayed as Mario's love interest and has appeared
-                        in Super Princess Peach, where she is the main playable character.
+                    <div className='grid lg:grid-cols-2 justify-center items-center'>
+                        {
+                            loadShopProduct.map(eachProduct => <SingleShopProduct key={eachProduct._id} eachProduct={eachProduct}></SingleShopProduct>)
+                        }
                     </div>
                 </TabPanel>
             </Tabs>
