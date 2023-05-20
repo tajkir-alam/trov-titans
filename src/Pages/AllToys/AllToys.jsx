@@ -6,17 +6,23 @@ const AllToys = () => {
     const [loadToys, setLoadToys] = useState([]);
 
     const [showProducts, setShowProducts] = useState(20);
+    const [searchProducts, setSearchProducts] = useState('')
 
     useEffect(() => {
-        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=${showProducts}`)
+        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys?limit=${showProducts}&searchtoy=${searchProducts}`)
             .then(res => res.json())
             .then(data => setLoadToys(data));
-    }, [showProducts])
+    }, [showProducts, searchProducts])
 
     const productsLimit = e => {
         setShowProducts(parseInt(e.target.value));
     }
-    console.log(showProducts);
+
+
+    const searchBox = e => {
+        const searchValue = e.target.value;
+        setSearchProducts(searchValue);
+    }
 
     return (
         <div>
@@ -29,7 +35,7 @@ const AllToys = () => {
             <section className='space-y-5'>
                 <div className='grid lg:grid-cols-2 gap-2 px-4'>
                     <div className='relative'>
-                        <input type="text" placeholder="Search here" className="input input-bordered input-error w-full" />
+                        <input onChange={(searchBox)} type="text" placeholder="Search here" className="input input-bordered input-error w-full" />
                         <button>
                             <FaSearch className='text-2xl text-[#b60217d2] absolute inset-y-1/3 right-5'></FaSearch>
                         </button>

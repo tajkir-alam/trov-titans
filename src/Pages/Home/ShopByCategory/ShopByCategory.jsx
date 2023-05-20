@@ -13,7 +13,7 @@ const ShopByCategory = () => {
     const [nameIs, setNameIs] = useState('');
 
     useEffect(() => {
-        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=2&categoryname=${nameIs}`)
+        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys?limit=2&categoryname=${nameIs}`)
             .then(res => res.json())
             .then(data => setLoadShopProduct(data));
     }, [nameIs])
