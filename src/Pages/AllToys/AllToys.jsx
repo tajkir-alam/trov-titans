@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ToyTable from './ToyTable';
+import { FaSearch } from 'react-icons/fa';
 
 const AllToys = () => {
     const [loadToys, setLoadToys] = useState([]);
@@ -27,8 +28,11 @@ const AllToys = () => {
 
             <section className='space-y-5'>
                 <div className='grid lg:grid-cols-2 gap-2 px-4'>
-                    <div className=''>
+                    <div className='relative'>
                         <input type="text" placeholder="Search here" className="input input-bordered input-error w-full" />
+                        <button>
+                            <FaSearch className='text-2xl text-[#b60217d2] absolute inset-y-1/3 right-5'></FaSearch>
+                        </button>
                     </div>
                     <div className='flex justify-end'>
                         <select onChange={productsLimit} className="select select-error w-full lg:w-fit">
