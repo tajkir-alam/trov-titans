@@ -66,27 +66,27 @@ const Header = () => {
                 <div className='flex'>
                     <span className='hidden md:block'>{navAccessBtn()}</span>
                 </div>
-                <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            {user &&
+                {user &&
+                    <div className="dropdown dropdown-end">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
                                 <div className="group">
                                     <img src={user.photoURL} />
                                     <p className='opacity-0 group-hover:opacity-100 absolute text-2xl text-error font-semibold z-30'>{user.displayName}</p>
                                 </div>
-                            }
-                        </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        {/* <li><a>Logout</a></li>    -------->>>> After Assignment mark make this as a logout button   */}
-                    </ul>
-                </div>
+                            </div>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li>
+                                <a className="justify-between">
+                                    Profile
+                                </a>
+                            </li>
+                            <li><a>Settings</a></li>
+                            {/* <li><a>Logout</a></li>    -------->>>> After Assignment mark make this as a logout button   */}
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     );

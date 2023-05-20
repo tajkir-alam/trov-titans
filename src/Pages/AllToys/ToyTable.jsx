@@ -27,9 +27,9 @@ const ToyTable = ({ singleToys }) => {
                 <td>{subCategory}</td>
                 <td>${price}</td>
                 <td>{quantity}</td>
-                <th>
+                <td>
                     <Link to={`/toy/${_id}`} className="btn btn-error w-full text-white tracking-wider font-semibold shadow-md">View Details</Link>
-                </th>
+                </td>
             </tr>
         </>
     );

@@ -8,16 +8,16 @@ const MyToys = () => {
 
     const [loadToys, setLoadToys] = useState([]);
 
-    const [showProducts, setShowProducts] = useState(20);
+    const [showProducts, setShowProducts] = useState(1);
 
     useEffect(() => {
-        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys?email=${user && user.email}`)
+        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys?email=${user && user.email}&sorttoys=${showProducts}`)
             .then(res => res.json())
             .then(data => setLoadToys(data));
     }, [showProducts])
 
     const productsLimit = e => {
-        setShowProducts(parseInt(e.target.value));
+        setShowProducts(e.target.value);
     }
 
 
@@ -30,12 +30,11 @@ const MyToys = () => {
             </section>
 
             <section className='space-y-5'>
-                <div className='flex justify-end'>
+                <div className='flex justify-end px-4'>
                     <select onChange={productsLimit} className="select select-error w-full lg:w-fit">
-                        <option value={20}>Products Loaded: 20</option>
-                        <option value={5}>Products Loaded: 5</option>
-                        <option value={30}>Products Loaded: 30</option>
-                        <option value={50}>Products Loaded: 50</option>
+                        <option value={20}>Sort By</option>
+                        <option value={1}>Ascending</option>
+                        <option value={-1}>Descending</option>
                     </select>
                 </div>
 

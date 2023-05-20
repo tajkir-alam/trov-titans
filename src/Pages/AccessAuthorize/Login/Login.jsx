@@ -68,7 +68,7 @@ const Login = () => {
                             </div>
                             <div className="space-y-1">
                                 <label htmlFor="password" className='block font-medium ml-1'>Enter your password</label>
-                                <input {...register("password")} required id="" placeholder='Enter password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
+                                <input {...register("password")} type='password' required id="" placeholder='Enter password' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@ const Login = () => {
 
                         {errors.exampleRequired && <span>This field is required</span>}
 
-                        <input type="submit" value="Add Product" className='btn btn-error w-full text-white font-semibold tracking-widest drop-shadow-xl' />
+                        <input type="submit" value="Log in" className='btn btn-error w-full text-white font-semibold tracking-widest drop-shadow-xl' />
                     </form>
                 </div>
             </div>

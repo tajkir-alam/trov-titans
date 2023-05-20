@@ -87,7 +87,7 @@ const Registration = () => {
 
                         {errors.exampleRequired && <span>This field is required</span>}
 
-                        <input type="submit" value="Add Product" className='btn btn-error w-full text-white font-semibold tracking-widest drop-shadow-xl' />
+                        <input type="submit" value="Sign in" className='btn btn-error w-full text-white font-semibold tracking-widest drop-shadow-xl' />
                     </form>
                 </div>
             </div>

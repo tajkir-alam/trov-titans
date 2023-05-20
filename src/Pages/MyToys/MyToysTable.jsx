@@ -28,9 +28,14 @@ const MyToysTable = ({ singleToys }) => {
                 <td>{subCategory}</td>
                 <td>${price}</td>
                 <td>{quantity}</td>
-                <th>
-                    <Link to={`/toy/${_id}`} className="btn btn-error w-full text-white tracking-wider font-semibold shadow-md">View Details</Link>
-                </th>
+                <td className='grid grid-cols-2 gap-2'>
+                    <button className="btn btn-success text-white tracking-wide">
+                        Update
+                    </button>
+                    <button className="btn btn-error text-white tracking-wide">
+                        Delete
+                    </button>
+                </td>
             </tr>
         </>
     );
