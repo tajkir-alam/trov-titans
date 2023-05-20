@@ -7,7 +7,6 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const AddToy = () => {
 
     const { user } = useContext(AuthContext);
-    console.log(user);
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ToyTable from './ToyTable';
 import { FaSearch } from 'react-icons/fa';
-import SingleToy from '../SingleToy/SingleToy';
 
 const AllToys = () => {
     const [loadToys, setLoadToys] = useState([]);
