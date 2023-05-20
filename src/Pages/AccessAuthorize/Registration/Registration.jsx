@@ -80,7 +80,7 @@ const Registration = () => {
                         </div>
 
                         <div className="divider my-8 font-semibold text-yellow-600">
-                            Already have an account?<Link to={'/'} className='text-blue-500'>Login here</Link>
+                            Already have an account?<Link to={'/login'} className='text-blue-500'>Login here</Link>
                         </div>
 
                         {errors.exampleRequired && <span>This field is required</span>}
