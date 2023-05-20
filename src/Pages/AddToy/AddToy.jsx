@@ -4,10 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddToy = () => {
-    const addProducts = event => {
-        event.preventDefault();
-
-    }
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -29,13 +25,11 @@ const AddToy = () => {
             })
     };
 
-    // const notify = () => toast("Wow so easy !");
-
     return (
         <>
             <div className="bg-slate-200 p-2 lg:p-12 mt-10">
-                <div className='custom-container bg-slate-100 rounded-md shadow-md drop-shadow-md p-4 lg:p-10 tracking-wider'>
-                    <h1 className='text-2xl lg:text-5xl text-center font-semibold mb-4'>Add A New Product</h1>
+                <div className='custom-container bg-slate-100 rounded-lg shadow-md drop-shadow-md p-4 lg:p-10 tracking-wider'>
+                    <h1 className='text-2xl lg:text-5xl text-slate-600 text-center font-semibold mb-4'>Add A New Product</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="space-y-5">
                             <div className="grid lg:grid-cols-2 items-center gap-3">
