@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Registration = () => {
 
-    const { emailSignup, googleLogin } = useContext(AuthContext);
+    const { emailSignup, googleLogin, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const delayNavigate = () => {
@@ -16,15 +16,12 @@ const Registration = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
-
         emailSignup(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 if (user) {
                     toast("Registration Success !");
-                    setTimeout(delayNavigate, 2000)
+                    setTimeout(delayNavigate, 2000);
                     reset();
                 }
             })
@@ -33,13 +30,29 @@ const Registration = () => {
             })
     };
 
+    const googleSignup = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                if (user) {
+                    toast("Registration Success !");
+                    setTimeout(delayNavigate, 2000);
+                    logOut();
+                    reset();
+                }
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
     return (
         <>
             <div className="bg-slate-200 p-2 lg:p-12 mt-10 ">
                 <div className='bg-slate-100 lg:w-2/4 mx-auto rounded-lg shadow-md drop-shadow-md p-4 lg:px-10 lg:py-24 tracking-wider'>
                     <h1 className='text-2xl lg:text-5xl text-slate-600 text-center font-semibold mb-4 underline'>Sign Up</h1>
                     <div className='grid justify-center mt-8'>
-                        <button className='btn glass text-slate-500 flex justify-center items-center border-2 rounded-full w-12 h-12 mx-auto my-1'>
+                        <button onClick={googleSignup} className='btn glass text-slate-500 flex justify-center items-center border-2 rounded-full w-12 h-12 mx-auto my-1'>
                             <span className='text-3xl'><FaGoogle></FaGoogle></span>
                         </button>
                         <p>You can also signup with your Email</p>
