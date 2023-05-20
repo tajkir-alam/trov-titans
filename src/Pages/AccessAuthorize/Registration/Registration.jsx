@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
+import { FaGoogle } from "react-icons/fa";
 
 const Registration = () => {
 
@@ -11,8 +13,15 @@ const Registration = () => {
     return (
         <div className="bg-slate-200 p-2 lg:p-12 mt-10 ">
             <div className='bg-slate-100 lg:w-2/4 mx-auto rounded-lg shadow-md drop-shadow-md p-4 lg:px-10 lg:py-24 tracking-wider'>
-                <h1 className='text-2xl lg:text-5xl text-slate-600 text-center font-semibold mb-4 underline'>Register Now</h1>
-                <form onSubmit={handleSubmit(onSubmit)} className='mt-8'>
+                <h1 className='text-2xl lg:text-5xl text-slate-600 text-center font-semibold mb-4 underline'>Sign Up</h1>
+                <div className='grid justify-center mt-8'>
+                    <button className='btn glass text-slate-500 flex justify-center items-center border-2 rounded-full w-12 h-12 mx-auto my-1'>
+                        <span className='text-3xl'><FaGoogle></FaGoogle></span>
+                    </button>
+                    <p>You can also signup with your Email</p>
+                    <div className="divider mt-0"></div>
+                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="space-y-5">
                         <div className="space-y-1">
                             <label htmlFor="name" className='block font-medium ml-1'>Enter your name</label>
@@ -33,9 +42,13 @@ const Registration = () => {
 
                     </div>
 
+                    <div className="divider my-8 font-semibold text-yellow-600">
+                        Already have an account?<Link to={'/'} className='text-blue-500'>Login here</Link>
+                    </div>
+
                     {errors.exampleRequired && <span>This field is required</span>}
 
-                    <input type="submit" value="Add Product" className='btn btn-error w-full text-white font-semibold tracking-widest mt-8 drop-shadow-xl' />
+                    <input type="submit" value="Add Product" className='btn btn-error w-full text-white font-semibold tracking-widest drop-shadow-xl' />
                 </form>
             </div>
         </div>
