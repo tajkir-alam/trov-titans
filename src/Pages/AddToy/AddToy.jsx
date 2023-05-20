@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AddToy = () => {
+
+    const { user } = useContext(AuthContext);
+    console.log(user);
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -45,11 +49,11 @@ const AddToy = () => {
                             <div className="grid lg:grid-cols-2 gap-3 items-center">
                                 <div className='space-y-1'>
                                     <label htmlFor="sellerName" className='block font-medium ml-1'>Your name</label>
-                                    <input type="text" required {...register("sellerName")} id="" placeholder='Enter your name' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
+                                    <input type="text" required {...register("sellerName")} id="" value={user && user.displayName} className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
                                 </div>
                                 <div className='space-y-1'>
                                     <label htmlFor="sellerEmail" className='block font-medium ml-1'>Your email</label>
-                                    <input type="text" required {...register("sellerEmail")} id="" placeholder='Enter your email' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
+                                    <input type="text" required {...register("sellerEmail")} id="" value={user && user.email} className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
                                 </div>
                             </div>
                             <div className='grid lg:grid-cols-2 gap-3 items-center'>

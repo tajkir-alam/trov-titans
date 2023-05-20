@@ -13,7 +13,7 @@ const PrivateRoute = ({ children }) => {
             <>
                 {loader &&
                     <div>
-                        <div className='hidden lg:block absolute left-1/3 top-2/4'>
+                        <div className='hidden lg:block absolute left-2/4 top-2/4'>
                             <PropagateLoader
                                 color="#e4132bd2"
                                 loading
