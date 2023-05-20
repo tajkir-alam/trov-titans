@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
@@ -6,6 +6,7 @@ import { AuthContext } from '../../../Providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Registration = () => {
+    const [Error, setError] = useState('');
 
     const { emailSignup, googleLogin, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -16,17 +17,17 @@ const Registration = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        emailSignup(data.email, data.password)
+        emailSignup(data.email, data.password, data.name, data.picture)
             .then(result => {
                 const user = result.user;
-                if (user) {
-                    toast("Registration Success !");
-                    setTimeout(delayNavigate, 2000);
-                    reset();
-                }
+                navigate('/login');
+                logOut();
+                setLoader(false);
             })
             .catch(error => {
+                setError(error.message.split('(')[1].split(')')[0].split('/')[1])
                 console.log(error.message);
+                setLoader(false);
             })
     };
 

@@ -18,8 +18,6 @@ const ShopByCategory = () => {
             .then(data => setLoadShopProduct(data));
     }, [nameIs])
 
-    console.log(nameIs)
-
     return (
         <div className='custom-container'>
             <div className='text-center space-y-3 md:w-3/4 mb-6 mx-auto px-1 md:px-0'>

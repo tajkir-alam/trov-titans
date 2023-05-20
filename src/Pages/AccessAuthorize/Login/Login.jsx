@@ -33,8 +33,6 @@ const Login = () => {
             })
     };
 
-    console.log(Error);
-
     const googleSignup = () => {
         setLoader(true);
         googleLogin()
