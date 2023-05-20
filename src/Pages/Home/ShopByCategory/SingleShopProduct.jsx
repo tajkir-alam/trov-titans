@@ -1,6 +1,7 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import { Rating } from '@smastrom/react-rating';
+import { Link } from 'react-router-dom';
 
 const SingleShopProduct = ({ eachProduct }) => {
 
@@ -24,7 +25,7 @@ const SingleShopProduct = ({ eachProduct }) => {
                     />
                 </div>
                 <div>
-                    <button className="btn btn-error w-full text-white tracking-widest">View Details</button>
+                    <Link to={`/toy/${_id}`} className="btn btn-error w-full text-white tracking-wider font-semibold shadow-md">View Details</Link>
                 </div>
             </div>
         </div>

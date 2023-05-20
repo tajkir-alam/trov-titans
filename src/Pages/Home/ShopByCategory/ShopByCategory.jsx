@@ -27,9 +27,6 @@ const ShopByCategory = () => {
                 <p className='font-medium text-slate-600'>Lorem ipsum dolor sit, Dolorum mollitia similique odio esse aliquam assumenda facilis magnam accusantium iste.</p>
             </div>
 
-            {/* ------------------------------------------------------------------- */}
-
-
             <Tabs>
                 <TabList className='text-center text-[#e4132bd2] text-xl font-semibold divider'>
                     <Tab onClick={() => setNameIs('Marvel')}>Marvel</Tab>
@@ -58,18 +55,6 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
             </Tabs>
-
-
-
-
-            {/* ------------------------------------------------------------------- */}
-
-
-
-
-
-
-
         </div>
     );
 };
