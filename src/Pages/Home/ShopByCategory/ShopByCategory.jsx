@@ -10,17 +10,17 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 const ShopByCategory = () => {
     const [loadShopProduct, setLoadShopProduct] = useState([]);
 
-    let nameIs = '';
+    const [nameIs, setNameIs] = useState('');
 
     const categoryname = (nameAre) => {
-        return nameIs = nameAre;
+        setNameIs(nameAre);
     }
 
     useEffect(() => {
         fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=2&categoryname=${nameIs}`)
             .then(res => res.json())
             .then(data => setLoadShopProduct(data));
-    }, [])
+    }, [nameIs])
 
     // loadShopProduct.map(ok => console.log(ok))
 

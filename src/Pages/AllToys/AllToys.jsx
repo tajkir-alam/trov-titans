@@ -4,11 +4,19 @@ import ToyTable from './ToyTable';
 const AllToys = () => {
     const [loadToys, setLoadToys] = useState([]);
 
+    const [showProducts, setShowProducts] = useState(20);
+
     useEffect(() => {
-        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=20`)
+        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=${showProducts}`)
             .then(res => res.json())
             .then(data => setLoadToys(data));
     }, [])
+
+    const productsLimit = e => {
+        // console.log(e.target.value);
+        setShowProducts(parseInt(e.target.value));
+    }
+    console.log(showProducts);
 
     return (
         <div>
@@ -20,10 +28,10 @@ const AllToys = () => {
 
             <section className='space-y-5'>
                 <div className='text-right pr-3'>
-                    <select className="select select-error">
-                        <option>Products Loaded: 20</option>
-                        <option>Products Loaded: 30</option>
-                        <option>Products Loaded: 50</option>
+                    <select onChange={productsLimit} className="select select-error">
+                        <option value={20}>Products Loaded: 20</option>
+                        <option value={30}>Products Loaded: 30</option>
+                        <option value={50}>Products Loaded: 50</option>
                     </select>
                 </div>
 
