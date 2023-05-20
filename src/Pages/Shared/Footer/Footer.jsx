@@ -1,15 +1,16 @@
 import React from 'react';
 import logo from '../../../assets/logo.png';
 import { FaFacebookSquare, FaLinkedin, FaTwitterSquare } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <footer className="p-10 lg:px-0 bg-base-200 text-base-content mt-12">
             <div className='footer custom-container grid grid-cols-2 items-center lg:grid-cols-4'>
-                <div>
+                <Link to={'/'}>
                     <img src={logo} alt="" />
                     <p>Trov Titans LTD.<br />You Action fig partner</p>
-                </div>
+                </Link>
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
