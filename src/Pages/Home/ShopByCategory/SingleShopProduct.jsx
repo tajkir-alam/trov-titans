@@ -9,14 +9,15 @@ const SingleShopProduct = ({ eachProduct }) => {
     // console.log(eachProduct);
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img src={picture} alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Name: {name}</h2>
-                <p>Price: ${price}</p>
-                <p>Ratings: {ratings}</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+
+        <div className="grid grid-cols-3 items-center bg-base-100 shadow-xl h-full rounded-lg">
+            <figure className='p-2 md:p-4'><img src={picture} alt="Movie" className='w-full h-52' /></figure>
+            <div className="card-body col-span-2 p-3">
+                <h2 className="card-title text-2xl text-[#e4132bd2]">{name}</h2>
+                <p className="font-medium"><span className='text-[#e4132bd2]'>Price</span>: ${price}</p>
+                <p className="font-medium"><span className='text-[#e4132bd2]'>Ratings</span>: {ratings}</p>
+                <div className="">
+                    <button className="btn btn-error w-full text-white tracking-widest">View Details</button>
                 </div>
             </div>
         </div>

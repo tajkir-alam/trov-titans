@@ -40,22 +40,22 @@ const ShopByCategory = () => {
                     <Tab onClick={() => categoryname('Transformers')}>Transformers</Tab>
                     <Tab onClick={() => categoryname('StarWars')}>Star Wars</Tab>
                 </TabList>
-                <TabPanel className='shadow-xl'>
-                    <div className='grid lg:grid-cols-2 justify-center items-center'>
+                <TabPanel className='shadow-xl rounded-xl'>
+                    <div className='grid lg:grid-cols-2 gap-5 p-4 justify-center items-center'>
                         {
                             loadShopProduct.map(eachProduct => <SingleShopProduct key={eachProduct._id} eachProduct={eachProduct}></SingleShopProduct>)
                         }
                     </div>
                 </TabPanel>
-                <TabPanel className='shadow-xl'>
-                    <div className='grid lg:grid-cols-2 justify-center items-center'>
+                <TabPanel className='shadow-xl rounded-xl'>
+                    <div className='grid lg:grid-cols-2 gap-5 p-4 justify-center items-center'>
                         {
                             loadShopProduct.map(eachProduct => <SingleShopProduct key={eachProduct._id} eachProduct={eachProduct}></SingleShopProduct>)
                         }
                     </div>
                 </TabPanel>
-                <TabPanel className='shadow-xl'>
-                    <div className='grid lg:grid-cols-2 justify-center items-center'>
+                <TabPanel className='shadow-xl rounded-xl'>
+                    <div className='grid lg:grid-cols-2 gap-5 p-4 justify-center items-center'>
                         {
                             loadShopProduct.map(eachProduct => <SingleShopProduct key={eachProduct._id} eachProduct={eachProduct}></SingleShopProduct>)
                         }
