@@ -26,13 +26,18 @@ const AllToys = () => {
             </section>
 
             <section className='space-y-5'>
-                <div className='text-right pr-3'>
-                    <select onChange={productsLimit} className="select select-error">
-                        <option value={20}>Products Loaded: 20</option>
-                        <option value={5}>Products Loaded: 5</option>
-                        <option value={30}>Products Loaded: 30</option>
-                        <option value={50}>Products Loaded: 50</option>
-                    </select>
+                <div className='grid lg:grid-cols-2 gap-2 px-4'>
+                    <div className=''>
+                        <input type="text" placeholder="Search here" className="input input-bordered input-error w-full" />
+                    </div>
+                    <div className='flex justify-end'>
+                        <select onChange={productsLimit} className="select select-error w-full lg:w-fit">
+                            <option value={20}>Products Loaded: 20</option>
+                            <option value={5}>Products Loaded: 5</option>
+                            <option value={30}>Products Loaded: 30</option>
+                            <option value={50}>Products Loaded: 50</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div className="overflow-x-auto w-full px-4">
