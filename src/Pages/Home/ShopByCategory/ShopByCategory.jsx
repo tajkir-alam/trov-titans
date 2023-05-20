@@ -22,7 +22,7 @@ const ShopByCategory = () => {
             .then(data => setLoadShopProduct(data));
     }, [])
 
-    loadShopProduct.map(ok => console.log(ok))
+    // loadShopProduct.map(ok => console.log(ok))
 
     return (
         <div className='custom-container'>

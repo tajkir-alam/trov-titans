@@ -1,5 +1,4 @@
 import React from 'react';
-import img1 from '../../../assets/gallery3.jpg'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { Rating } from '@smastrom/react-rating';
 
@@ -11,7 +10,7 @@ const SingleShopProduct = ({ eachProduct }) => {
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img src={img1} alt="Shoes" /></figure>
+            <figure><img src={picture} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">Name: {name}</h2>
                 <p>Price: ${price}</p>
