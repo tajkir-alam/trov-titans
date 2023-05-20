@@ -17,7 +17,7 @@ const Registration = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        emailSignup(data.email, data.password, data.name, data.picture)
+        emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
                 const user = result.user;
                 navigate('/login');

@@ -1,23 +1,46 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Header = () => {
+
+    const { user, logOut, loader, setLoader } = useContext(AuthContext);
+
+    const signOut = () => {
+        setLoader(true)
+        setTimeout(logOut, 1000)
+    }
+
     const navItems = () => <>
         <li><NavLink to={'/'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Home</NavLink></li>
         <li><NavLink to={'/alltoys'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>All Toys</NavLink></li>
-        <li><NavLink to={'/mytoys'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>My Toys</NavLink></li>
-        <li><NavLink to={'/addtoy'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Add a Toy</NavLink></li>
+        {user &&
+            <>
+                <li><NavLink to={'/mytoys'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>My Toys</NavLink></li>
+                <li><NavLink to={'/addtoy'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Add a Toy</NavLink></li>
+            </>
+        }
         <li><NavLink to={'/blogs'} className={({ isActive }) => isActive ? "active font-bold" : "hover:bg-transparent"}>Blogs</NavLink></li>
     </>
 
     const navAccessBtn = () => <>
-        <NavLink to={'/login'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
-            Login
-        </NavLink>
-        <NavLink to={'/registration'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
-            Signup
-        </NavLink>
+        {!user ?
+            <>
+                <NavLink to={'/login'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
+                    Login
+                </NavLink>
+                <NavLink to={'/registration'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
+                    Signup
+                </NavLink>
+            </>
+            :
+            <NavLink onClick={signOut} to={'/login'} className={({ isActive }) => isActive ? 'active-secondary' : 'common-active-secondary'}>
+                Log Out
+            </NavLink>
+
+        }
     </>
 
     return (
@@ -46,7 +69,12 @@ const Header = () => {
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            {user &&
+                                <div className="group">
+                                    <img src={user.photoURL} />
+                                    <p className='opacity-0 group-hover:opacity-100 absolute text-2xl text-error font-semibold z-30'>{user.displayName}</p>
+                                </div>
+                            }
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
