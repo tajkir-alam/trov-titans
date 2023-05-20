@@ -13,7 +13,6 @@ const AllToys = () => {
     }, [showProducts])
 
     const productsLimit = e => {
-        // console.log(e.target.value);
         setShowProducts(parseInt(e.target.value));
     }
     console.log(showProducts);
@@ -38,7 +37,6 @@ const AllToys = () => {
 
                 <div className="overflow-x-auto w-full px-4">
                     <table className="table w-full">
-                        {/* head */}
                         <thead>
                             <tr>
                                 <th>Toy Name</th>

@@ -12,17 +12,13 @@ const ShopByCategory = () => {
 
     const [nameIs, setNameIs] = useState('');
 
-    const categoryname = (nameAre) => {
-        setNameIs(nameAre);
-    }
-
     useEffect(() => {
         fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/shopbycategory?limit=2&categoryname=${nameIs}`)
             .then(res => res.json())
             .then(data => setLoadShopProduct(data));
     }, [nameIs])
 
-    // loadShopProduct.map(ok => console.log(ok))
+    console.log(nameIs)
 
     return (
         <div className='custom-container'>
@@ -36,9 +32,9 @@ const ShopByCategory = () => {
 
             <Tabs>
                 <TabList className='text-center text-[#e4132bd2] text-xl font-semibold divider'>
-                    <Tab onClick={() => categoryname('Marvel')}>Marvel</Tab>
-                    <Tab onClick={() => categoryname('Transformers')}>Transformers</Tab>
-                    <Tab onClick={() => categoryname('StarWars')}>Star Wars</Tab>
+                    <Tab onClick={() => setNameIs('Marvel')}>Marvel</Tab>
+                    <Tab onClick={() => setNameIs('Transformers')}>Transformers</Tab>
+                    <Tab onClick={() => setNameIs('StarWars')}>Star Wars</Tab>
                 </TabList>
                 <TabPanel className='shadow-xl rounded-xl'>
                     <div className='grid lg:grid-cols-2 gap-5 p-4 justify-center items-center'>

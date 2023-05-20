@@ -1,7 +1,8 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 
 const ToyTable = ({ singleToys }) => {
-    const { sellerName, name, subCategory, price, quantity, picture} = singleToys;
+    const { sellerName, name, subCategory, price, quantity, picture } = singleToys;
 
     return (
         <tr>
@@ -9,7 +10,9 @@ const ToyTable = ({ singleToys }) => {
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src={picture} alt="Avatar Tailwind CSS Component" />
+                            <LazyLoad>
+                                <img src={picture} alt="Avatar Tailwind CSS Component" />
+                            </LazyLoad>
                         </div>
                     </div>
                     <div>
