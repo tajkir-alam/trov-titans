@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [Error, setError] = useState('');
@@ -15,6 +16,18 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         setLoader(true);
@@ -22,6 +35,10 @@ const Login = () => {
         emailLogin(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                });
                 navigate(from, { replace: true });
                 setLoader(false);
                 reset();

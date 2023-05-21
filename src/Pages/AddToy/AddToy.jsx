@@ -10,7 +10,8 @@ const AddToy = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        data.price = parseFloat(data.price);
+        console.log(data);
         fetch('http://localhost:5000/alltoys', {
             method: "POST",
             headers: {
