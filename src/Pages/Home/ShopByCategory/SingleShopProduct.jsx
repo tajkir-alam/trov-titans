@@ -3,13 +3,22 @@ import LazyLoad from 'react-lazy-load';
 import { Rating } from '@smastrom/react-rating';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const SingleShopProduct = ({ eachProduct }) => {
 
     const { picture, name, price, ratings, _id } = eachProduct;
 
     const { user } = useContext(AuthContext);
+
+    const sendAlert = () => {
+        Swal.fire({
+            title: 'Authentication Failed!',
+            text: 'Do you want to continue?',
+            icon: 'warning',
+            confirmButtonText: 'Please Login'
+        })
+    }
 
     return (
 
@@ -32,25 +41,14 @@ const SingleShopProduct = ({ eachProduct }) => {
                     {user ?
                         <Link to={`/toy/${_id}`} className="btn btn-error w-full text-white tracking-wider font-semibold shadow-md">View Details</Link>
                         :
-                        <Link onClick={() => alert("You have to login first to view details")} to={`/toy/${_id}`} className="btn btn-error w-full text-white tracking-wider font-semibold shadow-md">View Details</Link>
+                        <Link onClick={sendAlert } to={`/toy/${_id}`} className="btn btn-error w-full text-white tracking-wider font-semibold shadow-md">View Details</Link>
                     }
                 </div>
             </div>
-
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
         </div>
     );
 };
 
 export default SingleShopProduct;
+
+// () => alert("You have to login first to view details")} to={`/toy/${_id}`
