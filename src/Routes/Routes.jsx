@@ -47,12 +47,12 @@ const router = createBrowserRouter([
             {
                 path: '/toy/:id',
                 element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://trov-titans-server-data.vercel.app/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://trov-titans-server-data.vercel.app/alltoys/${params.id}`)
             },
             {
                 path: '/update-toy/:id',
                 element: <ToyUpdate></ToyUpdate>,
-                loader: ({ params }) => fetch(`https://trov-titans-server-data.vercel.app/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://trov-titans-server-data.vercel.app/alltoys/${params.id}`)
             }
         ]
     },

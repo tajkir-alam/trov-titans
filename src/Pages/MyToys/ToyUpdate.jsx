@@ -1,31 +1,41 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 
 
 const ToyUpdate = () => {
     const loadToys = useLoaderData();
     console.log(loadToys);
 
+    const navigate = useNavigate()
+
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.price = parseFloat(data.price);
         console.log(data);
-        // fetch('http://localhost:5000/alltoys', {
-        //     method: "POST",
-        //     headers: {
-        //         'content-type': 'application/json',
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         // console.log(data);
-        //         if (data.acknowledged) {
-        //             toast("Product has been added !");
-        //             reset();
-        //         }
-        //     })
+        fetch(`http://localhost:5000/alltoys/${loadToys._id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    reset();
+                    navigate(`/toy/${loadToys._id}`);
+                }
+            })
     };
 
     return (
