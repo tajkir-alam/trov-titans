@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
+
 
 const Registration = () => {
     const [Error, setError] = useState('');
@@ -16,11 +17,27 @@ const Registration = () => {
         navigate('/login')
     }
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
                 const user = result.user;
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed in successfully'
+                });
                 navigate('/login');
                 logOut();
                 setLoader(false);
@@ -91,20 +108,6 @@ const Registration = () => {
                     </form>
                 </div>
             </div>
-
-
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored"
-            />
         </>
     );
 };
