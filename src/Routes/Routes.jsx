@@ -9,6 +9,7 @@ import Login from "../Pages/AccessAuthorize/Login/Login";
 import Registration from "../Pages/AccessAuthorize/Registration/Registration";
 import SingleToy from "../Pages/SingleToy/SingleToy";
 import PrivateRoute from "./PrivateRoute";
+import ToyUpdate from "../Pages/MyToys/ToyUpdate";
 
 const router = createBrowserRouter([
     {
@@ -46,7 +47,12 @@ const router = createBrowserRouter([
             {
                 path: '/toy/:id',
                 element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-                loader: ({params}) => fetch(`https://trov-titans-server-data.vercel.app/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://trov-titans-server-data.vercel.app/toy/${params.id}`)
+            },
+            {
+                path: '/update-toy/:id',
+                element: <ToyUpdate></ToyUpdate>,
+                loader: ({ params }) => fetch(`https://trov-titans-server-data.vercel.app/toy/${params.id}`)
             }
         ]
     },

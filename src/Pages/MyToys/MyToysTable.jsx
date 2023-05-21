@@ -29,9 +29,9 @@ const MyToysTable = ({ singleToys }) => {
                 <td>${price}</td>
                 <td>{quantity}</td>
                 <td className='grid grid-cols-2 gap-2'>
-                    <button className="btn btn-success text-white tracking-wide">
+                    <Link to={`/update-toy/${_id}`} className="btn btn-success text-white tracking-wide">
                         Update
-                    </button>
+                    </Link>
                     <button className="btn btn-error text-white tracking-wide">
                         Delete
                     </button>
