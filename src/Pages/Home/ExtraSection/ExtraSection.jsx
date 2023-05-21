@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img1 from '../../../assets/gallery7.jpg'
 import img2 from '../../../assets/user3.png'
 import img3 from '../../../assets/person2.png'
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 const ExtraSection = () => {
+    useEffect(() => {
+        Aos.init();
+    },[])
+
     return (
         <section className='custom-container my-20 lg:my-28 '>
             <div className='p-0 h-80 relative rounded-xl'>
@@ -28,7 +34,7 @@ const ExtraSection = () => {
                     <p className='md:w-1/2 mx-auto'>We are happy to get the valuable thoughts from our customers. Thanks for being with us. Keep shopping action figures and play. </p>
                 </div>
                 <div className='grid lg:grid-cols-2 justify-center items-center gap-8'>
-                    <div className='bg-[#f1eaea8f] rounded-tl-3xl rounded-tr-lg rounded-br-3xl rounded-bl-lg px-4 py-8 h-64 grid grid-cols-3 items-center gap-4'>
+                    <div data-aos="fade-down-right" data-aos-delay="10" data-aos-duration="2000" data-aos-easing="ease-in-out" className='bg-[#f1eaea8f] rounded-tl-3xl rounded-tr-lg rounded-br-3xl rounded-bl-lg px-4 py-8 h-64 grid grid-cols-3 items-center gap-4'>
                         <div>
                             <img src={img2} alt="" className='h-full w-full opacity-75' />
                         </div>
@@ -44,7 +50,7 @@ const ExtraSection = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='bg-[#f1eaea8f] rounded-tl-3xl rounded-tr-lg rounded-br-3xl rounded-bl-lg px-4 py-8 h-64 grid grid-cols-3 items-center gap-4'>
+                    <div data-aos="fade-up-left" data-aos-delay="10" data-aos-duration="2000" className='bg-[#f1eaea8f] rounded-tl-3xl rounded-tr-lg rounded-br-3xl rounded-bl-lg px-4 py-8 h-64 grid grid-cols-3 items-center gap-4'>
                         <div>
                             <img src={img3} alt="" className='h-full w-full opacity-75' />
                         </div>
