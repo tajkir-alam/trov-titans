@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouteError } from 'react-router-dom';
+import { Link, useRouteError } from 'react-router-dom';
 import errorImg from '../../assets/error.png'
 import { FaArrowLeft } from 'react-icons/fa';
 
@@ -10,10 +10,10 @@ const ErrorPage = () => {
         <div className='bg-slate-900 h-screen'>
 
             <div className="custom-container mt-0 py-5">
-                <button className='btn gap-4 tracking-widest font-semibold text-lg glass bg-[#e4132bd2]'>
+                <Link to={'/'} className='btn gap-4 tracking-widest font-semibold text-lg glass bg-[#e4132bd2]'>
                     <FaArrowLeft className='text-lg'></FaArrowLeft>
                     Go Back
-                </button>
+                </Link>
             </div>
             <div className='text-5xl text-white text-center'>
                 {statusText}
