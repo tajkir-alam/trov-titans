@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import MyToysTable from './MyToysTable';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
 
@@ -18,6 +19,27 @@ const MyToys = () => {
 
     const productsLimit = e => {
         setShowProducts(e.target.value);
+    }
+
+
+    const handleDelete = (id) => {
+        console.log(id);
+        fetch(`http://localhost:5000/alltoys/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted Successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                    const remainingToys = loadToys.filter(toys => toys._id !== id);
+                    setLoadToys(remainingToys);
+                }
+            })
     }
 
 
@@ -52,7 +74,7 @@ const MyToys = () => {
                         </thead>
                         <tbody>
                             {
-                                loadToys.map(singleToys => <MyToysTable key={singleToys._id} singleToys={singleToys}></MyToysTable>)
+                                loadToys.map(singleToys => <MyToysTable key={singleToys._id} singleToys={singleToys} handleDelete={handleDelete}></MyToysTable>)
                             }
                         </tbody>
                     </table>

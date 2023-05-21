@@ -6,14 +6,12 @@ import Swal from 'sweetalert2';
 
 const ToyUpdate = () => {
     const loadToys = useLoaderData();
-    console.log(loadToys);
 
     const navigate = useNavigate()
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.price = parseFloat(data.price);
-        console.log(data);
         fetch(`http://localhost:5000/alltoys/${loadToys._id}`, {
             method: "PUT",
             headers: {
@@ -23,14 +21,12 @@ const ToyUpdate = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
-                        position: 'top-end',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'Updated Successfully',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 2000
                     })
                     reset();
                     navigate(`/toy/${loadToys._id}`);

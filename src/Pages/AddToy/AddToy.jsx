@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
 
     const { user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -21,10 +24,16 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 if (data.acknowledged) {
-                    toast("Product has been added !");
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Updated Successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
                     reset();
+                    navigate('/mytoys');
                 }
             })
     };

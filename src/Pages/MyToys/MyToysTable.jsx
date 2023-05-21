@@ -2,7 +2,7 @@ import React from 'react';
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
-const MyToysTable = ({ singleToys }) => {
+const MyToysTable = ({ singleToys, handleDelete }) => {
 
     const { sellerName, name, subCategory, price, quantity, picture, _id } = singleToys;
 
@@ -32,7 +32,7 @@ const MyToysTable = ({ singleToys }) => {
                     <Link to={`/update-toy/${_id}`} className="btn btn-success text-white tracking-wide">
                         Update
                     </Link>
-                    <button className="btn btn-error text-white tracking-wide">
+                    <button onClick={() => handleDelete(_id)} className="btn btn-error text-white tracking-wide">
                         Delete
                     </button>
                 </td>
