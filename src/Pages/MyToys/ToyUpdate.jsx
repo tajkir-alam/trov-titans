@@ -2,10 +2,12 @@ import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 
 const ToyUpdate = () => {
     const loadToys = useLoaderData();
+    useTitle(loadToys.name);
 
     const navigate = useNavigate()
 

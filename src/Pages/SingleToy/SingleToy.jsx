@@ -1,10 +1,12 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const SingleToy = () => {
     const loadToy = useLoaderData();
     const { picture, name, sellerName, sellerEmail, price, ratings, quantity, details } = loadToy;
+    useTitle(name);
 
     return (
         <div className='custom-container mt-8 p-3 shadow-md rounded-lg'>

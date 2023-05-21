@@ -3,8 +3,10 @@ import imgMongoDB from '../../assets/MongoDB.png';
 import gallery3 from '../../assets/gallery3.jpg';
 import gallery5 from '../../assets/gallery5.jpg';
 import gallery8 from '../../assets/gallery8.jpg';
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
+    useTitle('Blogs')
     return (
         <div className='custom-container my-16 grid gap-8'>
             <div className="flex gap-5 shadow-xl rounded-lg hover:scale-125 duration-300 ease-out">

@@ -4,9 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 const AddToy = () => {
-
+    useTitle('Add Toy');
     const { user } = useContext(AuthContext);
 
     const navigate = useNavigate();
