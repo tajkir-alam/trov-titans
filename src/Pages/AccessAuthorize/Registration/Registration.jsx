@@ -31,6 +31,7 @@ const Registration = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
+        setError('');
         emailSignup(data.email, data.password, data.name, data.img)
             .then(result => {
                 const user = result.user;
@@ -95,8 +96,11 @@ const Registration = () => {
                                 <label htmlFor="img" className='block font-medium ml-1'>Enter a valid image URL</label>
                                 <input {...register("img")} required placeholder='Enter URL here @example: https://img.com' className='py-2 px-3 shadow-lg border-2 outline-none rounded-md w-full' />
                             </div>
-
                         </div>
+                        
+                        {
+                            <p className='my-8 text-error font-bold tracking-widest'>{Error}</p>
+                        }
 
                         <div className="divider my-8 font-semibold text-yellow-600">
                             Already have an account?<Link to={'/login'} className='text-blue-500'>Login here</Link>

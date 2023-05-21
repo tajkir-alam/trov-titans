@@ -30,7 +30,7 @@ const Login = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         setLoader(true);
-
+        setError('');
         emailLogin(data.email, data.password)
             .then(result => {
                 const user = result.user;
