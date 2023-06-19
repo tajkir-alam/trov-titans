@@ -14,7 +14,7 @@ const ToyUpdate = () => {
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.price = parseFloat(data.price);
-        fetch(`http://localhost:5000/alltoys/${loadToys._id}`, {
+        fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys/${loadToys._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json',

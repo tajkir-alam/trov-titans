@@ -16,7 +16,7 @@ const AddToy = () => {
     const onSubmit = data => {
         data.price = parseFloat(data.price);
         console.log(data);
-        fetch('http://localhost:5000/alltoys', {
+        fetch('https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

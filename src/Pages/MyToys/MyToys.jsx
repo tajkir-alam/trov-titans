@@ -35,7 +35,7 @@ const MyToys = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/alltoys/${id}`, {
+                    fetch(`https://trov-titans-server-data-tajkir-alam.vercel.app/alltoys/${id}`, {
                         method: "DELETE",
                     })
                         .then(res => res.json())
