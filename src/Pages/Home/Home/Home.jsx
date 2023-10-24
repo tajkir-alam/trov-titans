@@ -5,6 +5,7 @@ import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import ExtraSection from '../ExtraSection/ExtraSection';
 import useTitle from '../../../hooks/useTitle';
 import OurStory from '../OurStory/OurStory';
+import WhyUs from '../WhyUs/WhyUs';
 
 const Home = () => {
     useTitle('Home')
@@ -15,6 +16,7 @@ const Home = () => {
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
             <OurStory></OurStory>
+            <WhyUs></WhyUs>
             <ExtraSection></ExtraSection>
         </div>
     );
