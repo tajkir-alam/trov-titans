@@ -6,6 +6,7 @@ import ExtraSection from '../ExtraSection/ExtraSection';
 import useTitle from '../../../hooks/useTitle';
 import OurStory from '../OurStory/OurStory';
 import WhyUs from '../WhyUs/WhyUs';
+import OurImpact from '../OurImpact/OurImpact';
 
 const Home = () => {
     useTitle('Home')
@@ -18,6 +19,7 @@ const Home = () => {
             <OurStory></OurStory>
             <WhyUs></WhyUs>
             <ExtraSection></ExtraSection>
+            <OurImpact></OurImpact>
         </div>
     );
 };
